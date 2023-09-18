@@ -1,6 +1,3 @@
-/doc.aux
-/doc.fdb_latexmk
-/doc.fls
-/doc.log
-/doc.pdf
-/doc.synctex.gz
+/doc.*
+!doc.tex
+
