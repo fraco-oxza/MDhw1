@@ -333,44 +333,22 @@ $k=2$
 \hspace*{0pt}\hfill $/ - n_1^2 - n_2^2$
 \[ 0 \leq  2n_1n_2-2n_1-2n_2+2 \]
 \[ 0 \leq 2(n_1 - 1)(n_2 - 1) \]
+\[ 0 \leq (n_1 - 1)(n_2 -1) \]
+
+\[ 1 \leq n_1 = 0 \leq n_1 - 1  \]
+\[ 1 \leq n_2 = 0 \leq n_2 -1  \]
+\[ \therefore  0 \leq (n_1 - 1)(n_2 -1)\]
+
+$k=3$
+%TODO: Implementar
 \subsubsection*{\emph{H.I.}}
 Ahora asumiremos lo siguiente como correcto.
 \[ n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
 
+
 \subsubsection*{\emph{T.I.}}
 PDQ:
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k\]
-Llegaremos a esta ecuación iniciando desde la \emph{H.I.}
-\[ n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
-\hspace*{0pt}\hfill $/ + n_{k+1}^2 $
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n-k+1)^2 + k -1 +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n-k+1)^2 + k -1 +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq n^2 + 2n +k^2-2nk-k +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + 2n-k-2nn_{k+1}+2kn_{k+1}\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k -2(n_{k+1} -1)(n-k) \]
-
-Llegamos a la ecuación que se buscaba pero con una expresión extra, pero sigue siendo 
-útil, ya que por los valores que pueden tomar los términos, ocurre lo siguiente:
-\[ (n-k) \geq 0 \land (n_{k+1}-1) \geq 0 \]
-\[ \therefore (n_{k+1}-1)(n-k) \geq 0 \]
-Al ser una desigualdad podemos ignorar el $ -2(n_{k+1}-1)(n-k) $, ya que si el lado
-derecho es mayor, y elimino un término que lo estaba decrementando, entonces 
-aumentará en magnitud y seguirá siendo más grande. Lamentablemente no basta con 
-esto para completar la demostración, porque con la lógica antes mencionada, se 
-obtiene la siguiente ecuación:
-
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 < (n + n_{k+1}-k)^2 + k \]
-
-Ahora no puedo asegurar el $\leq$, ya que el término que borramos anteriormente
-podía ser el que hiciese la igualdad en la inecuación, pero añadiendo un argumento 
-extra, podemos permitirnos aplicar $\leq$. El argumento se basa en que la única 
-manera de que la parte derecha e izquierda sean iguales(bajo las restricciones
-del ejercicio) es que todo $n_{i}$ sea igual a 1, y en ese caso $ -2(n_{k+1}-1)(n-k) $
-se vuelve 0, ya que $n=k$, y la inecuación se cumple a cabalidad, obteniendo lo 
-siguiente.
-
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k \]
-
+%TODO: Escribir la demostracion
 
 \section{Falacias inductivas}
 
