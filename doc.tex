@@ -10,6 +10,16 @@
 \maketitle
 
 \section{Inducción Estructural}
+\subsection{Primero definimos la función $Insert(L,k)$}
+Usando las definiciones de $Lista$ y $Pre(L)$ vistas en clases, y asumiendo que $L$ está ordenada, definiremos $Insert(L,k)$ como:
+\[Insert(\emptyset,k) = \emptyset \rightarrow k\]
+\[Insert(L,k)\ = \left\{\begin{array}{lr}
+  L \rightarrow k, & k \ge Tail(L)\\
+  Insert(Pre(L),k) \rightarrow Tail(L), & k < Tail(L)
+\end{array}\right\}
+\]
+
+\subsection{Definimos $InsertSort(L)$}
 
 \section{Inducción sobre strings}
 
@@ -290,6 +300,57 @@ ya están en el grafo por estar máximamente conectado.
 \section{Inducción para resolver sumatorias}
 
 \section{Inducción sobre fórmulas lógicas}
+\subsection{Tautologías usadas en la demostración}
+\begin{enumerate}
+  \item Transformación:  $p \rightarrow q \equiv \neg p \lor q$
+  \item Distributividad: $p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$
+  \item Distributividad: $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$
+  \item Doble negación: $\neg\neg p \equiv p$
+\end{enumerate}
+
+\subsection{Demostración}
+Usando inducción demostraremos que si $L(P)$ es un lenguaje proposicional, la fórmula $(\bigvee _{i=1}^{n} X_i) \rightarrow Y $ es lógicamente equivalente a $\bigwedge _{i=1}^{n} (X_i \rightarrow Y)$,
+para todo $n \ge 1$.
+\subsubsection*{\emph{B.I}}
+\emph{n=1}
+\[X_1 \rightarrow Y \equiv X_1 \rightarrow Y\]
+\emph{n=2}
+\[(X_1 \lor X_2) \rightarrow Y \qquad (X_1 \rightarrow Y) \land (X_2 \rightarrow Y) \]
+\[\neg(X_1 \lor X_2) \lor Y \qquad (\neg X_1 \lor Y) \land (\neg X_2 \lor Y) \]
+\[(\neg X_1 \land \neg X_2) \lor Y \quad \equiv \quad (\neg X_1 \land \neg X_2) \lor Y \]
+
+\subsubsection*{\emph{H.I}}
+\[ (\bigvee _{i=1}^{n} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \]
+
+\subsubsection*{\emph{T.I}}
+Para demostrar que lo propuesto en el enunciado se cumple, podemos usar el $PIS$ en lo siguiente:\\
+\emph{Empezaremos por la fórmula lógica de la derecha}
+\[ (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) \]
+
+\emph{Aplicamos propiedad de la "ANDatoria"}
+\[ \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) = \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \land (X_{n+1} \rightarrow Y) \]
+
+\emph{Por H.I}
+\[ \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \land (X_{n+1} \rightarrow Y) = ((\bigvee _{i=1}^{n} X_i) \rightarrow Y) \land (X_{n+1} \rightarrow Y) \] 
+
+\emph{Aplicamos Transformación}
+\[ ((\bigvee _{i=1}^{n} X_i) \rightarrow Y) \land (X_{n+1} \rightarrow Y) = (\neg(\bigvee _{i=1}^{n} X_i) \lor Y) \land (\neg X_{n+1} \lor Y) \]
+
+\emph{Aplicamos Distributividad}
+\[ (\neg(\bigvee _{i=1}^{n} X_i) \lor Y) \land (\neg X_{n+1} \lor Y) = (\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y\]
+
+\emph{Aplicamos Doble negación}
+\[ (\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y = \neg\neg(\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y\] 
+\[ \neg\neg(\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y = \neg((\bigvee _{i=1}^{n} X_i) \lor  X_{n+1} )\lor Y \]
+
+\emph{Aplicamos propiedad de la "ORatoria"}
+\[ \neg((\bigvee _{i=1}^{n} X_i) \lor  X_{n+1}) \lor Y = \neg(\bigvee _{i=1}^{n+1} X_i) \lor Y \]
+
+\emph{Aplicamos Transformación}
+\[ \neg(\bigvee _{i=1}^{n+1} X_i) \lor Y = (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y\]
+
+\emph{Ahora es claro que:}
+\[ (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) \]
 
 \newpage
 \section{Inducción sobre números naturales}
@@ -309,44 +370,22 @@ $k=2$
 \hspace*{0pt}\hfill $/ - n_1^2 - n_2^2$
 \[ 0 \leq  2n_1n_2-2n_1-2n_2+2 \]
 \[ 0 \leq 2(n_1 - 1)(n_2 - 1) \]
+\[ 0 \leq (n_1 - 1)(n_2 -1) \]
+
+\[ 1 \leq n_1 = 0 \leq n_1 - 1  \]
+\[ 1 \leq n_2 = 0 \leq n_2 -1  \]
+\[ \therefore  0 \leq (n_1 - 1)(n_2 -1)\]
+
+$k=3$
+%TODO: Implementar
 \subsubsection*{\emph{H.I.}}
 Ahora asumiremos lo siguiente como correcto.
 \[ n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
 
+
 \subsubsection*{\emph{T.I.}}
 PDQ:
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k\]
-Llegaremos a esta ecuación iniciando desde la \emph{H.I.}
-\[ n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
-\hspace*{0pt}\hfill $/ + n_{k+1}^2 $
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n-k+1)^2 + k -1 +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n-k+1)^2 + k -1 +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq n^2 + 2n +k^2-2nk-k +n_{k+1}^2\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + 2n-k-2nn_{k+1}+2kn_{k+1}\]
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k -2(n_{k+1} -1)(n-k) \]
-
-Llegamos a la ecuación que se buscaba pero con una expresión extra, pero sigue siendo 
-útil, ya que por los valores que pueden tomar los términos, ocurre lo siguiente:
-\[ (n-k) \geq 0 \land (n_{k+1}-1) \geq 0 \]
-\[ \therefore (n_{k+1}-1)(n-k) \geq 0 \]
-Al ser una desigualdad podemos ignorar el $ -2(n_{k+1}-1)(n-k) $, ya que si el lado
-derecho es mayor, y elimino un término que lo estaba decrementando, entonces 
-aumentará en magnitud y seguirá siendo más grande. Lamentablemente no basta con 
-esto para completar la demostración, porque con la lógica antes mencionada, se 
-obtiene la siguiente ecuación:
-
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 < (n + n_{k+1}-k)^2 + k \]
-
-Ahora no puedo asegurar el $\leq$, ya que el término que borramos anteriormente
-podía ser el que hiciese la igualdad en la inecuación, pero añadiendo un argumento 
-extra, podemos permitirnos aplicar $\leq$. El argumento se basa en que la única 
-manera de que la parte derecha e izquierda sean iguales(bajo las restricciones
-del ejercicio) es que todo $n_{i}$ sea igual a 1, y en ese caso $ -2(n_{k+1}-1)(n-k) $
-se vuelve 0, ya que $n=k$, y la inecuación se cumple a cabalidad, obteniendo lo 
-siguiente.
-
-\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq (n + n_{k+1}-k)^2 + k \]
-
+%TODO: Escribir la demostracion
 
 \section{Falacias inductivas}
 
