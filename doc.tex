@@ -13,16 +13,53 @@
 
 \section{Inducción sobre strings}
 
+\subsection{Definición}
+Considere el conjunto \(S\) de secuencias (o strings) compuestas por símbolos 0 y 1, definido por inducción de la siguiente manera:
+\begin{itemize}
+\item 01 es una secuencia en \(S\).
+\item Si u es una secuencia en \(S\), entonces la secuencia 0\(u\)1 está en \(S\).
+\item Si \(u\) y \(v\) son secuencias en \(S\), entonces la secuencia \(uv\) está en S.
+\end{itemize}
+
+Por ejemplo, las secuencias 0011 y 0101 están en S.
+
 \subsection{Demostración de la secuencia 00011101}
 Se puede demostrar que la secuencia pertenece al conjunto \(S\) usando las reglas dadas, logrando llegar a la conclusión de que es una extensión del caso base.
 
+
 Dado que \(uv\) está en \(S\), podemos usar \(u\) como 000111 y \(v\) como 01. \(v\) está en \(S\) porque es el caso base.
+
 
 PDQ: \(u\) es una secuencia en \(S\).
 
+
 Dado que 0\(u\)1 es una secuencia en \(S\), podemos cambiar nuestro \(u\) a 0011. Podemos repetir esto, y ahora \(u\) sería 01, que es el caso base.
 
+
 Con esto se demuestra que la secuencia 00011101 se encuentra en el conjunto \(S\).
+
+\subsection{Demostración que todas las secuencias tienen igual cantidad de 0's y 1's}
+\(\#0_u\) = Cantidad de 0 en la secuencia \(u\)
+
+\subsubsection*{\emph{B.I.}}
+\(u\) = 01
+
+La secuencia \(u \in S\).
+
+\[\#0_u = 1\ \land\ \#1_u = 1\]
+
+\[\therefore \#0_u = \#1_u\]
+
+\subsubsection*{\emph{H.I.}}
+Asumimos que para \(u \in S\ \rightarrow\ \#0_u = \#1_u\).
+
+PDQ: \(\#0_{uv} = \#1_{uv}\ \land\ \#0_{0u1} = \#1_{0u1}\)
+
+\[\#0_{0u1} = \#0_u + 1\ \land\ \#1_{0u1} = \#1_u + 1\]
+
+\[\#0_u = \#1_u\]
+
+\[\therefore \#0_{0u1} = \#1_{0u1}\]
 
 \section{Definición inductiva de grafos}
 %Pancho Tarea
