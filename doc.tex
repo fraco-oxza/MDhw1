@@ -349,7 +349,22 @@ Ahora asumiremos lo siguiente como correcto.
 \subsubsection*{\emph{T.I.}}
 PDQ:
 %TODO: Escribir la demostracion
-
+\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq ((n + n_{k+1}) - (k+1) + 1)^2 + (k+1)-1 \]
+\[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq ((n + n_{k+1}) - k)^2 + k \]
+-\[   n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
+=\[ n_{k+1}^2 \leq (n+n_{k+1} - k)^2 + k - ((n-k+1)^2 + k -1) \]
+\[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 + k - ((n-k)^2 + 2(n-k) + 1+ k -1) \]
+\[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 + k - ((n-k)^2 + 2(n-k) + 1+ k -1) \]
+\[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 - ((n-k)^2 + 2(n-k)) \]
+\[ n_{k+1}^2 \leq n^2 + 2nn_{k+1} + n_{k+1}^2 - 2kn -2kn_{k+1} + k^2  - (n^2 - 2kn +k^2 + 2n - 2k)) \]
+\[ n_{k+1}^2 \leq 2nn_{k+1} + n_{k+1}^2 -2kn_{k+1} - ( 2n - 2k)) \]
+\hspace*{0pt}\hfill $/ -n_{k+1}^2 $
+\[ 0 \leq 2nn_{k+1} -2kn_{k+1} - 2n + 2k \]
+\hspace*{0pt}\hfill $/ *\frac{1}{2} $
+\[ 0 \leq nn_{k+1} -kn_{k+1} - n + k \]
+\[ 0 \leq n_{k+1}(n-k) - n + k \]
+\[ 0 \leq n_{k+1}(n-k) - (n - k) \]
+\[ 0 \leq n_{k+1}(n-k) - (n - k) \]
 \section{Falacias inductivas}
 
 \end{document}
