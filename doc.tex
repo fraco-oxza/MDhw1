@@ -2,6 +2,7 @@
 \usepackage{amssymb}
 \usepackage{tikz}
 \usepackage[margin=4cm]{geometry}
+\setlength{\parskip}{10pt}
 
 \title{Modelos Discretos: Respuestas tarea 1}
 \author{Francisco Carvajal, Vicente Díaz, Benjamín Farías}
@@ -31,22 +32,18 @@ Considere el conjunto \(S\) de secuencias (o strings) compuestas por símbolos 0
 \item Si \(u\) y \(v\) son secuencias en \(S\), entonces la secuencia \(uv\) está en S.
 \end{itemize}
 
-Por ejemplo, las secuencias 0011 y 0101 están en S.
+\noindent Por ejemplo, las secuencias 0011 y 0101 están en S.
 
 \subsection{Demostración de la secuencia 00011101}
 Se puede demostrar que la secuencia pertenece al conjunto \(S\) usando las reglas dadas, logrando llegar a la conclusión de que es una extensión del caso base.
 
+\noindent Dado que \(uv\) está en \(S\), podemos usar \(u\) como 000111 y \(v\) como 01. \(v\) está en \(S\) porque es el caso base.
 
-Dado que \(uv\) está en \(S\), podemos usar \(u\) como 000111 y \(v\) como 01. \(v\) está en \(S\) porque es el caso base.
+\textbf{PDQ:} \(u\) es una secuencia en \(S\).
 
+\noindent Dado que 0\(u\)1 es una secuencia en \(S\), podemos cambiar nuestro \(u\) a 0011. Podemos repetir esto, y ahora \(u\) sería 01, que es el caso base.
 
-PDQ: \(u\) es una secuencia en \(S\).
-
-
-Dado que 0\(u\)1 es una secuencia en \(S\), podemos cambiar nuestro \(u\) a 0011. Podemos repetir esto, y ahora \(u\) sería 01, que es el caso base.
-
-
-Con esto se demuestra que la secuencia 00011101 se encuentra en el conjunto \(S\).
+\noindent Con esto se demuestra que la secuencia 00011101 se encuentra en el conjunto \(S\).
 
 \subsection{Demostración que todas las secuencias tienen igual cantidad de 0's y 1's}
 \(\#0_u\) = Cantidad de 0 en la secuencia \(u\)
@@ -54,7 +51,7 @@ Con esto se demuestra que la secuencia 00011101 se encuentra en el conjunto \(S\
 \subsubsection*{\emph{B.I.}}
 \(u\) = 01
 
-La secuencia \(u \in S\).
+\noindent La secuencia \(u \in S\).
 
 \[\#0_u = 1\ \land\ \#1_u = 1\]
 
@@ -63,13 +60,44 @@ La secuencia \(u \in S\).
 \subsubsection*{\emph{H.I.}}
 Asumimos que para \(u \in S\ \rightarrow\ \#0_u = \#1_u\).
 
-PDQ: \(\#0_{uv} = \#1_{uv}\ \land\ \#0_{0u1} = \#1_{0u1}\)
+\textbf{PDQ:} \(\#0_{uv} = \#1_{uv}\ \land\ \#0_{0u1} = \#1_{0u1}\)
 
 \[\#0_{0u1} = \#0_u + 1\ \land\ \#1_{0u1} = \#1_u + 1\]
 
 \[\#0_u = \#1_u\]
 
 \[\therefore \#0_{0u1} = \#1_{0u1}\]
+
+\noindent Ahora falta demostrar que \(\#0_{uv} = \#1_{uv}\):
+
+\[\#0_{uv} = \#0_u + \#0_v\ \land\ \#1_{uv} = \#1_u + \#1_v\]
+
+\[\#0_u = \#1_u\]
+
+\noindent Y como \(v \in S\):
+
+\[\#0_v = \#1_v\]
+
+\[\therefore \#0_{uv} = \#1_{uv}\]
+
+\subsection{Demostración que 11010001 no está en \(S\)}
+\subsubsection*{\emph{Propiedad}}
+Toda secuencia que pertenezca a \(S\) comienza por el carácter 0.
+
+\subsubsection*{\emph{B.I}}
+La secuencia 01 comienza por 0.
+
+\subsubsection*{\emph{H.I}}
+Aceptamos la propiedad como verdadera para \(u \in S\).
+
+\textbf{PDQ:} \(0u1\) cumple y que \(uv\) también cumple.
+
+\noindent \(0u1\) comienza por 0 sin importar la secuencia \(u\).
+
+\noindent En \(uv\) la secuencia \(u\) cumple la propiedad, lo que significa que \(uv\) también cumple la propiedad.
+
+\subsubsection*{\emph{Conclusión}}
+La secuencia 11010001 no cumple esta propiedad, por tanto no pertenece al conjunto \(S\).
 
 \section{Definición inductiva de grafos}
 %Pancho Tarea
@@ -436,5 +464,21 @@ PDQ:
 
 
 \section{Falacias inductivas}
+\subsection{Teorema y demostración}
+Considere este teorema y su “demostración” por inducción:
+
+\noindent \textbf{Teorema} Dado un conjunto de \(n\) niñas, si al menos una de ellas tiene ojos azules, entonces las \(n\) niñas tienen ojos azules.
+
+\noindent \textbf{Demostración.} Para n = 1 el enunciado es obviamente cierto. Supongamos que la proposición es cierta para n niñas.
+Sean \(N_1, ... , N_{n+1}\) niñas con al menos una, pongamos \(N_1\), con ojos azules. Veamos que todas tienen los ojos azules:
+
+\noindent El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de inducción, con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\) tiene los ojos azules, tambien \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas y en particular \(N_{n+1}\) tiene los ojos azules. Así pues, \(N_1, ... , N_n, N_{n+1}\) tienen los ojos azules.
+
+\subsection{Error de la demostración}
+El error de esta demostración recae en tomar cualquier conjunto con \(n\) niñas y pensar que es igual que otro conjunto con \(n\) niñas. La verdad es que cada conjunto de \(n\) niñas es distinto, ya que pueden tener distintas niñas con distintas características físicas.
+
+\noindent La demostración se cae de inmediato cuando conformo un conjunto con \(n\) niñas que tengan los ojos de color verde, y ahora saco un niña de este conjunto y hago que sea la niña \(N_{n+1}\) del conjunto con niñas de ojos azules. Según el teorema las \(n + 1\) niñas tienen los ojos azules, pero en realidad hay una que tiene los ojos verdes.
+
+\noindent Por esto no se puede asumir que el conjunto conformado por las niñas \(N_1, ... , N_n\) es el mismo que el conjunto con las niñas \(N_2, ... , N_{n+1}\).
 
 \end{document}
