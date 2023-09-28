@@ -281,6 +281,38 @@ En este caso hay 1 arista, lo que concuerda con $a_2 = \frac{2(2-1)}{2} = 1$. :)
 \end{center}
 En este caso hay 10 aristas, lo que concuerda con $a_5 = \frac{5(5-1)}{2}$ = 10. :)
 
+\[ n = 6 \]
+
+\begin{center}
+\begin{tikzpicture}
+  % Nodos
+  \node[circle, draw] (0) {0};
+  \node[circle, draw] (1) [below left of=0] {1};
+  \node[circle, draw] (2) [above left of=0] {2};
+  \node[circle, draw] (3) [left of=1] {3};
+  \node[circle, draw] (4) [left of=2] {4};
+  \node[circle, draw] (5) [below left of=4] {5};
+
+  \draw (0) -- (1);
+  \draw (0) -- (2);
+  \draw (0) -- (3);
+  \draw (0) -- (4);
+  \draw (1) -- (2);
+  \draw (1) -- (3);
+  \draw (1) -- (4);
+  \draw (2) -- (3);
+  \draw (2) -- (4);
+  \draw (3) -- (4);
+  \draw (5) -- (0);
+  \draw (5) -- (1);
+  \draw (5) -- (2);
+  \draw (5) -- (3);
+  \draw (5) -- (4);
+\end{tikzpicture}
+\end{center}
+En este caso hay 15 aristas, lo que concuerda con $a_6 = \frac{6(6-1)}{2} = 15$. :)
+
+
 \subsubsection*{\emph{H.I}}
 Ahora asumiremos correcto que:
 \[ a_n = \frac{n(n-1)}{2} \]
@@ -385,23 +417,24 @@ Ahora asumiremos lo siguiente como correcto.
 
 \subsubsection*{\emph{T.I.}}
 PDQ:
-%TODO: Escribir la demostracion
 \[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq ((n + n_{k+1}) - (k+1) + 1)^2 + (k+1)-1 \]
 \[ n_1^2 + n_2^2 + ... + n_k^2 + n_{k+1}^2 \leq ((n + n_{k+1}) - k)^2 + k \]
 -\[   n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
 =\[ n_{k+1}^2 \leq (n+n_{k+1} - k)^2 + k - ((n-k+1)^2 + k -1) \]
-\[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 + k - ((n-k)^2 + 2(n-k) + 1+ k -1) \]
 \[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 + k - ((n-k)^2 + 2(n-k) + 1+ k -1) \]
 \[ n_{k+1}^2 \leq (n+n_{k+1})^2 - 2k(n+n_{k+1}) + k^2 - ((n-k)^2 + 2(n-k)) \]
 \[ n_{k+1}^2 \leq n^2 + 2nn_{k+1} + n_{k+1}^2 - 2kn -2kn_{k+1} + k^2  - (n^2 - 2kn +k^2 + 2n - 2k)) \]
 \[ n_{k+1}^2 \leq 2nn_{k+1} + n_{k+1}^2 -2kn_{k+1} - ( 2n - 2k)) \]
 \hspace*{0pt}\hfill $/ -n_{k+1}^2 $
 \[ 0 \leq 2nn_{k+1} -2kn_{k+1} - 2n + 2k \]
-\hspace*{0pt}\hfill $/ *\frac{1}{2} $
+\hspace*{0pt}\hfill $/ \times\frac{1}{2} $
 \[ 0 \leq nn_{k+1} -kn_{k+1} - n + k \]
 \[ 0 \leq n_{k+1}(n-k) - n + k \]
 \[ 0 \leq n_{k+1}(n-k) - (n - k) \]
 \[ 0 \leq n_{k+1}(n-k) - (n - k) \]
+\[ 0 \leq (n-k)( n_{k+1}-1) \]
+
+
 \section{Falacias inductivas}
 
 \end{document}
