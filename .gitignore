@@ -1,3 +1,5 @@
 /doc.*
+/problems/p*.*
+!/problems/p*.tex
 !doc.tex
 
