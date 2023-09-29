@@ -13,50 +13,11 @@
 
 \newpage
 \section{Inducción Estructural}
-%\subfile{problems/p1.tex} TODO: Descomentar luego de mover
-\subsection{Primero definimos la función $Insert(L,k)$}
-Usando las definiciones de listas $L \in \mathcal{L}_\mathbb{N}$ y las funciones $Pre(L)$ y $Tail(L)$ vistas en clases, y asumiendo que $L$ está ordenada, definiremos $Insert(L,k)$ como:
+\subfile{problems/p1.tex} 
 
-\[Insert(\emptyset,k) = \emptyset \rightarrow k\]
-\[Insert(L,k)\ = \left\{\begin{array}{lr}
-  L \rightarrow k, & k \ge Tail(L)\\
-  Insert(Pre(L),k) \rightarrow Tail(L), & k < Tail(L)
-\end{array}\right\}\]\\
-
-Como la lista $L$ está ordenada, si $k$ es mayor o igual que $Tail(L)$, significa que k debe ir al final de la lista. Si no, llama recursivamente a $Insert(L,k)$ sin el último elemento, hasta que $k$ sea mayor, o se llegue al inicio de la lista.
-
-\subsection{Definimos $InsertSort(L \rightarrow k)$}
-
-\subsection{Explicación paso a paso de $InsertSort(L \rightarrow k)$}
-Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \rightarrow k)$ recién definida, con la lista $L = \rightarrow 5 \rightarrow 1 \rightarrow 2$. 
-\subsection{BONUS}
-Para comprobar que InsertSort efectivamente entrega una lista ordenada, crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre inductivamente.
-$IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, o false si no.\\
-
-\emph{Se considera que una lista vacía no puede ser comparada, por ello la definición comienza con una lista de un solo elemento.}
-
-\[IsOrdered(\rightarrow k) = true \]
-\[IsOrdered(L \rightarrow k)\ = \left\{\begin{array}{lr}
-  false, & k < Tail(L)\\
-  IsOrdered(L), & k \ge Tail(L)
-\end{array}\right\}\]\\
-
-Esta función pregunta recursivamente si el último elemento de la lista es mayor o igual que el penúltimo, si es así, sigue sigue la recursión. En caso de no serlo, significa que la lista no se encuentra ordenada, retornando $false$ inmediatamente.\\
-Si es una lista de un solo elemento, claramente está ordenada, así que devuelve $true$.\\
-
-Ahora usaremos esta función con la lista entregada por $InsertSort(L \rightarrow k)$ en la explicación anterior:
-\[L = \rightarrow 1 \rightarrow 2 \rightarrow 5\]
-\emph{Como k = 5 es mayor o igual que Tail(L) = 2}
-\[IsOrdered(\rightarrow 1 \rightarrow 2 \rightarrow 5) = IsOrdered(\rightarrow 1 \rightarrow 2)\]
-\emph{Como k = 2 es mayor o igual que Tail(L) = 1}
-\[IsOrdered(\rightarrow 1 \rightarrow 2) = IsOrdered(\rightarrow 1)\]
-\emph{Y ahora es caso base, así que: }
-\[IsOrdered(\rightarrow 1) = true\]
-Con esto demostramos que efectivamente la lista $L$ está ordenada de menor a mayor. 
 \newpage
 \section{Inducción sobre strings}
 \subfile{problems/p2.tex}
-
 
 \newpage
 \section{Definición inductiva de grafos}
@@ -67,60 +28,7 @@ Con esto demostramos que efectivamente la lista $L$ está ordenada de menor a ma
 \subfile{problems/p4.tex}
 
 \section{Inducción sobre fórmulas lógicas}
-% \subfile{problems/p5.tex} TODO: Descomentar luego de mover
-
-\subsection{Tautologías usadas en la demostración}
-\begin{enumerate}
-  \item Transformación:  $p \rightarrow q \equiv \neg p \lor q$
-  \item Distributividad: $p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$
-  \item Distributividad: $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$
-  \item Doble negación: $\neg\neg p \equiv p$
-\end{enumerate}
-
-\subsection{Demostración}
-Usando inducción demostraremos que si $L(P)$ es un lenguaje proposicional, la fórmula $(\bigvee _{i=1}^{n} X_i) \rightarrow Y $ es lógicamente equivalente a $\bigwedge _{i=1}^{n} (X_i \rightarrow Y)$,
-para todo $n \ge 1$.
-\subsubsection*{\emph{B.I}}
-\emph{n=1}
-\[X_1 \rightarrow Y \equiv X_1 \rightarrow Y\]
-\emph{n=2}
-\[(X_1 \lor X_2) \rightarrow Y \qquad (X_1 \rightarrow Y) \land (X_2 \rightarrow Y) \]
-\[\neg(X_1 \lor X_2) \lor Y \qquad (\neg X_1 \lor Y) \land (\neg X_2 \lor Y) \]
-\[(\neg X_1 \land \neg X_2) \lor Y \quad \equiv \quad (\neg X_1 \land \neg X_2) \lor Y \]
-
-\subsubsection*{\emph{H.I}}
-\[ (\bigvee _{i=1}^{n} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \quad \forall n \ge 1\]
-
-\subsubsection*{\emph{T.I}}
-Para demostrar que lo propuesto en el enunciado se cumple, podemos usar el $PIS$ en lo siguiente:\\
-
-\emph{Empezaremos por la fórmula lógica de la derecha}
-\[ (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) \]
-
-\emph{Aplicamos propiedad de la "ANDatoria"}
-\[ \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) = \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \land (X_{n+1} \rightarrow Y) \]
-
-\emph{Por H.I}
-\[ \bigwedge _{i=1}^{n} (X_i \rightarrow Y) \land (X_{n+1} \rightarrow Y) = ((\bigvee _{i=1}^{n} X_i) \rightarrow Y) \land (X_{n+1} \rightarrow Y) \] 
-
-\emph{Aplicamos Transformación}
-\[ ((\bigvee _{i=1}^{n} X_i) \rightarrow Y) \land (X_{n+1} \rightarrow Y) = (\neg(\bigvee _{i=1}^{n} X_i) \lor Y) \land (\neg X_{n+1} \lor Y) \]
-
-\emph{Aplicamos Distributividad}
-\[ (\neg(\bigvee _{i=1}^{n} X_i) \lor Y) \land (\neg X_{n+1} \lor Y) = (\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y\]
-
-\emph{Aplicamos Doble negación}
-\[ (\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y = \neg\neg(\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y\] 
-\[ \neg\neg(\neg(\bigvee _{i=1}^{n} X_i) \land \neg X_{n+1} ) \lor Y = \neg((\bigvee _{i=1}^{n} X_i) \lor  X_{n+1} )\lor Y \]
-
-\emph{Aplicamos propiedad de la "ORatoria"}
-\[ \neg((\bigvee _{i=1}^{n} X_i) \lor  X_{n+1}) \lor Y = \neg(\bigvee _{i=1}^{n+1} X_i) \lor Y \]
-
-\emph{Aplicamos Transformación}
-\[ \neg(\bigvee _{i=1}^{n+1} X_i) \lor Y = (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y\]
-
-\emph{Ahora es claro que:}
-\[ (\bigvee _{i=1}^{n+1} X_i) \rightarrow Y \equiv \bigwedge _{i=1}^{n+1} (X_i \rightarrow Y) \]
+\subfile{problems/p5.tex} TODO: Descomentar luego de mover
 
 \newpage
 \section{Inducción sobre números naturales}
