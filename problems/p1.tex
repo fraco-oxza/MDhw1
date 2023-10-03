@@ -4,37 +4,75 @@
 Usando las definiciones de listas $L \in \mathcal{L}_\mathbb{N}$ y las funciones $Pre(L)$ y $Tail(L)$ vistas en clases, y asumiendo que $L$ está ordenada, definiremos $Insert(L,k)$ como:
 
 \[Insert(\emptyset,k) = \emptyset \rightarrow k\]
-\[Insert(L,k)\ = \left\{\begin{array}{lr}
+\[Insert(L,k) = \left\{
+\begin{array}{lr}
   L \rightarrow k, & k \ge Tail(L)\\
   Insert(Pre(L),k) \rightarrow Tail(L), & k < Tail(L)
-\end{array}\right\}\]\\
+\end{array}\right .\]
 
 Como la lista $L$ está ordenada, si $k$ es mayor o igual que $Tail(L)$, significa que k debe ir al final de la lista. Si no, llama recursivamente a $Insert(L,k)$ sin el último elemento, hasta que $k$ sea mayor, o se llegue al inicio de la lista.
 
 \subsection{Definimos $InsertSort(L \rightarrow k)$}
+Usando la definición de $Insert(L,k)$ recién hecha, definiremos $InsertSort(L \rightarrow k)$ como:
+
+\[InsertSort(\emptyset) = \emptyset \]
+\[InsertSort(L \rightarrow k) = Insert(InsertSort(L),k) \]
+
+Lo que ocurre es lo siguiente, la función $InsertSort$ continúa invocando a la función $Insert$ hasta que la lista esté vacía. Una vez que la lista está vacía, $InsertSort$ comienza a retornar de manera recursiva los elementos de la lista a la función $Insert$, que los inserta en el orden correspondiente.
 
 \subsection{Explicación paso a paso de $InsertSort(L \rightarrow k)$}
-Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \rightarrow k)$ recién definida, con la lista $L = \rightarrow 5 \rightarrow 1 \rightarrow 2$. 
+Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \rightarrow k)$ recién definida, con la lista $L = \emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2$. 
+
+\emph{Primero llamamos a $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$}
+
+\[InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2) = Insert(InsertSort(\emptyset \rightarrow 5 \rightarrow 1 ),2) \]
+
+\emph{Como $L$ no está vacía, se llama a $InsertSort(\emptyset \rightarrow 5 \rightarrow 1)$}
+
+\[InsertSort(\emptyset \rightarrow 5 \rightarrow 1) = Insert(InsertSort(\emptyset \rightarrow 5),1) \]
+
+\emph{Como $L$ no está vacía, se llama a $InsertSort(\emptyset \rightarrow 5)$}
+
+\[InsertSort(\emptyset \rightarrow 5) = Insert(InsertSort(\emptyset),5) \]
+
+\emph{Ahora que $L$ está vacía, las llamadas recursivas comienzan a resolverse en la stack}
+
+\emph{Se resulve la última llamada}
+
+\[Insert(\emptyset,5) = \emptyset \rightarrow 5\]
+
+\emph{Se resuelve la anterior}
+
+\[Insert(\emptyset \rightarrow 5,1) = \emptyset \rightarrow 1 \rightarrow 5\]
+
+\emph{Se resuelve la anterior y primera llamada de la función}
+
+\[Insert(\emptyset \rightarrow 1 \rightarrow 5,2) = \emptyset \rightarrow 1 \rightarrow 2 \rightarrow 5\]
+
+Finalmente, $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$ entrega la lista ordenada de manera ascendente; $L' = \emptyset \rightarrow 1 \rightarrow 2 \rightarrow 5$. 
+
 \subsection{BONUS}
 Para comprobar que InsertSort efectivamente entrega una lista ordenada, crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre inductivamente.
 $IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, o false si no.\\
 
 \emph{Se considera que una lista vacía no puede ser comparada, por ello la definición comienza con una lista de un solo elemento.}
 
-\[IsOrdered(\rightarrow k) = true \]
-\[IsOrdered(L \rightarrow k)\ = \left\{\begin{array}{lr}
+\[IsOrdered(\rightarrow k) = true\]
+\[IsOrdered(L \rightarrow k) =
+\left\{
+\begin{array}{lr}
   false, & k < Tail(L)\\
   IsOrdered(L), & k \ge Tail(L)
-\end{array}\right\}\]\\
+\end{array} \right .\]
 
 Esta función pregunta recursivamente si el último elemento de la lista es mayor o igual que el penúltimo, si es así, sigue sigue la recursión. En caso de no serlo, significa que la lista no se encuentra ordenada, retornando $false$ inmediatamente.\\
-Si es una lista de un solo elemento, claramente está ordenada, así que devuelve $true$.\\
+Si es una lista de un solo elemento, claramente está ordenada, por lo que devuelve $true$.\\
 
 Ahora usaremos esta función con la lista entregada por $InsertSort(L \rightarrow k)$ en la explicación anterior:
 \[L = \rightarrow 1 \rightarrow 2 \rightarrow 5\]
-\emph{Como k = 5 es mayor o igual que Tail(L) = 2}
+\emph{Como k = 5 es mayor o igual que $Tail(L)$ = 2}
 \[IsOrdered(\rightarrow 1 \rightarrow 2 \rightarrow 5) = IsOrdered(\rightarrow 1 \rightarrow 2)\]
-\emph{Como k = 2 es mayor o igual que Tail(L) = 1}
+\emph{Como k = 2 es mayor o igual que $Tail(L)$ = 1}
 \[IsOrdered(\rightarrow 1 \rightarrow 2) = IsOrdered(\rightarrow 1)\]
 \emph{Y ahora es caso base, así que: }
 \[IsOrdered(\rightarrow 1) = true\]
