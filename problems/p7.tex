@@ -4,17 +4,38 @@
 \subsection{Teorema y demostración}
 Considere este teorema y su “demostración” por inducción:
 
-\noindent \textbf{Teorema} Dado un conjunto de \(n\) niñas, si al menos una de ellas tiene ojos azules, entonces las \(n\) niñas tienen ojos azules.
+\noindent \textbf{Teorema} Dado un conjunto de \(n\) niñas, si al menos una de ellas tiene
+ojos azules, entonces las \(n\) niñas tienen ojos azules.
 
-\noindent \textbf{Demostración.} Para n = 1 el enunciado es obviamente cierto. Supongamos que la proposición es cierta para n niñas.
-Sean \(N_1, ... , N_{n+1}\) niñas con al menos una, pongamos \(N_1\), con ojos azules. Veamos que todas tienen los ojos azules:
+\noindent \textbf{Demostración.} Para n = 1 el enunciado es obviamente cierto. Supongamos
+que la proposición es cierta para n niñas.
+Sean \(N_1, ... , N_{n+1}\) niñas con al menos una, pongamos \(N_1\), con ojos azules.
+Veamos que todas tienen los ojos azules:
 
-\noindent El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de inducción, con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\) tiene los ojos azules, tambien \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas y en particular \(N_{n+1}\) tiene los ojos azules. Así pues, \(N_1, ... , N_n, N_{n+1}\) tienen los ojos azules.
+\noindent El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de inducción,
+con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\) tiene los ojos azules,
+tambien \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas
+y en particular \(N_{n+1}\) tiene los ojos azules. Así pues, \(N_1, ... , N_n, N_{n+1}\)
+tienen los ojos azules.
 
 \subsection{Error de la demostración}
-El error de esta demostración recae en tomar cualquier conjunto con \(n\) niñas y pensar que es igual que otro conjunto con \(n\) niñas. La verdad es que cada conjunto de \(n\) niñas es distinto, ya que se pueden tener distintas niñas con distintas características físicas.
+El error de esta demostración recae en tomar cualquier conjunto con \(n\) niñas y pensar
+que es igual que un conjunto diferente con la misma cantidad de niñas. La verdad es que
+cada conjunto de \(n\) niñas es distinto, se pueden tener distintas niñas con
+distintas características físicas.
 
-\noindent La demostración se cae de inmediato cuando conformo un conjunto con \(n\) niñas que tengan los ojos de color verde, y ahora saco un niña de este conjunto y hago que sea la niña \(N_{n+1}\) del conjunto con niñas de ojos azules. Según el teorema las \(n + 1\) niñas tienen los ojos azules, pero en realidad hay una que tiene los ojos verdes.
+\noindent La demostración se cae de inmediato cuando conformo un conjunto con \(n\) niñas
+que tengan los ojos de color verde, y ahora saco un niña de este conjunto y hago que sea
+la niña \(N_{n+1}\) del conjunto con niñas de ojos azules. Según el teorema las \(n + 1\)
+niñas tienen los ojos azules, pero en realidad hay una que tiene los ojos verdes.
 
-\noindent Por esto no se puede asumir que el conjunto conformado por las niñas \(N_1, ... , N_n\) es el mismo que el conjunto con las niñas \(N_2, ... , N_{n+1}\).
+\noindent Por esto no se puede asumir que el conjunto conformado por las niñas \(N_1, ... ,
+N_n\) es el mismo que el conjunto con las niñas \(N_2, ... , N_{n+1}\). Ya que tienen la
+misma cantidad de niñas, pero estas son distintas.
+
+\noindent También es posible notar el error al probar más casos bases. Cuando \(n = 1\)
+es evidente que si esa niña tiene los ojos azules las \(n\) niñas tienen los ojos azules.
+Sin embargo, cuando \(n = 2\) una niña puede tener los ojos azules, pero no necesariamente
+ambas. Por lo cual la propiedad funciona solo cuando \(n = 1\).
+
 \end{document}
