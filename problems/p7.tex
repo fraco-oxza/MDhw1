@@ -14,7 +14,7 @@ Veamos que todas tienen los ojos azules:
 
 El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de inducción,
 con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\) tiene los ojos azules,
-tambien \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas
+también \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas
 y en particular \(N_{n+1}\) tiene los ojos azules. Así pues, \(N_1, ... , N_n, N_{n+1}\)
 tienen los ojos azules.
 
@@ -25,20 +25,21 @@ que es igual que un conjunto diferente con la misma cantidad de niñas. La verda
 cada conjunto de \(n\) niñas es distinto, se pueden tener distintas niñas con
 distintas características físicas.
 
-La demostración se cae de inmediato cuando conformo un conjunto con \(n\) niñas
-que tengan los ojos de color verde, y ahora saco un niña de este conjunto y hago que sea
-la niña \(N_{n+1}\) del conjunto con niñas de ojos azules. Según el teorema las \(n + 1\)
-niñas tienen los ojos azules, pero en realidad hay una que tiene los ojos verdes.
-
-Por esto no se puede asumir que el conjunto conformado por las niñas \(N_1, ... ,
-N_n\) es el mismo que el conjunto con las niñas \(N_2, ... , N_{n+1}\). Ya que tienen la
-misma cantidad de niñas, pero estas son distintas.
-
-Un erro mas grave 
-
 También es posible notar el error al probar más casos bases. Cuando \(n = 1\)
-es evidente que si esa niña tiene los ojos azules las \(n\) niñas tienen los ojos azules.
-Sin embargo, cuando \(n = 2\) una niña puede tener los ojos azules, pero no necesariamente
-ambas. Por lo cual la propiedad funciona solo cuando \(n = 1\).
+es evidente que si esa niña tiene los ojos azules las \(n\) niñas tienen los 
+ojos azules. Sin embargo, cuando \(n = 2\) podemos encontrar el siguiente caso 
+que desacredita al teorema. Tenemos un grupo con dos niñas, una de ojos azules y 
+la otra de ojos marrón, este grupo de niñas cumple con el teorema, ya que existe
+una niña de ojos azules, pero a su vez hay una niña que tiene los ojos marrones 
+lo cual es una contradicción clara, lo que indica que la H.I. es incorrecta.
+
+Sin embargo, el error más grave es que está utilizando la T.I. para demostrar la T.I.
+Analicemos la H.I., que es la parte de la inducción que podemos aceptar como 
+cierta sin cuestionarnos. La H.I. es que en un grupo de  $ N_1, ..., N_{n} $ todas 
+las niñas tienen los ojos azules. Esta parte es correcta, el problema viene al 
+decir que $ N_2, ..., N_{n+1} $ también es un grupo con todas las niñas con ojos
+azules, ya que, esta es nuestra T.I., es decir, el autor no puede utilizarla dentro
+de la demostración de la T.I. Lógicamente es similar a querer demostrar que 
+algo es verdad diciendo que es verdad, utilizando esa verdad como argumento y nada más.
 
 \end{document}
