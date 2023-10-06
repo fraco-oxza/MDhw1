@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6f10bfb-6182-4702-9013-67aa420cd24a" name="Changes" comment="" />
+    <list default="true" id="f6f10bfb-6182-4702-9013-67aa420cd24a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/doc.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problems/p3.tex" beforeDir="false" afterPath="$PROJECT_DIR$/problems/p3.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problems/p6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/problems/p6.tex" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +31,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/fraco/Workdir/tankGame",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -43,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694995539337</updated>
       <workItem from="1694995551362" duration="637000" />
+      <workItem from="1696271456453" duration="54000" />
     </task>
     <servers />
   </component>

@@ -23,7 +23,7 @@ Lo que ocurre es lo siguiente, la función $InsertSort$ continúa invocando a la
 \subsection{Explicación paso a paso de $InsertSort(L \rightarrow k)$}
 Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \rightarrow k)$ recién definida, con la lista $L = \emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2$. 
 
-\emph{Primero llamamos a $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$}
+\textit{Primero llamamos a $ InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2) $ }
 
 \[InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2) = Insert(InsertSort(\emptyset \rightarrow 5 \rightarrow 1 ),2) \]
 
@@ -52,11 +52,12 @@ Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \r
 Finalmente, $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$ entrega la lista ordenada de manera ascendente; $L' = \emptyset \rightarrow 1 \rightarrow 2 \rightarrow 5$. 
 
 \subsection{BONUS}
-Para comprobar que InsertSort efectivamente entrega una lista ordenada, crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre inductivamente.
-$IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, o false si no.\\
+Para comprobar que InsertSort efectivamente entrega una lista ordenada,
+crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre inductivamente.
+$IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, o false si no.
 
-\emph{Se considera que una lista vacía no puede ser comparada, por ello la definición comienza con una lista de un solo elemento.}
-
+\textit{
+Se considera que una lista vacía no puede ser comparada, por ello la definición comienza con una lista de un solo elemento.}
 \[IsOrdered(\rightarrow k) = true\]
 \[IsOrdered(L \rightarrow k) =
 \left\{
@@ -65,8 +66,13 @@ $IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, 
   IsOrdered(L), & k \ge Tail(L)
 \end{array} \right .\]
 
-Esta función pregunta recursivamente si el último elemento de la lista es mayor o igual que el penúltimo, si es así, sigue sigue la recursión. En caso de no serlo, significa que la lista no se encuentra ordenada, retornando $false$ inmediatamente.\\
-Si es una lista de un solo elemento, claramente está ordenada, por lo que devuelve $true$.\\
+Esta función pregunta recursivamente si el último elemento de la lista es mayor 
+o igual que el penúltimo, si es así, sigue sigue la recursión. En caso de no 
+serlo, significa que la lista no se encuentra ordenada, retornando $false$ 
+inmediatamente.
+
+Si es una lista de un solo elemento, claramente está ordenada, por lo que 
+devuelve $true$.
 
 Ahora usaremos esta función con la lista entregada por $InsertSort(L \rightarrow k)$ en la explicación anterior:
 \[L = \rightarrow 1 \rightarrow 2 \rightarrow 5\]

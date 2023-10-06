@@ -13,7 +13,8 @@ $k=0$
 $k=1$
 \[ n_1^2 \leq (n_1^2 - 1 + 1)^2 + 1 - 1 = n_1^2\]
 $k=2$
-\[ n_1^2 + n_2^2 \leq (n_1 + n_2 - 2 + 1)^2 + 2 -1 = n_1^2 + 2n_1n_2+n_2^2-2n_1-2n_2+2 \]
+\[ n_1^2 + n_2^2 \leq (n_1 + n_2 - 2 + 1)^2 + 2 -1  \]
+\[ n_1^2 + n_2^2 \leq n_1^2 + 2n_1n_2+n_2^2-2n_1-2n_2+2 \]
 \hspace*{0pt}\hfill $/ - n_1^2 - n_2^2$
 \[ 0 \leq  2n_1n_2-2n_1-2n_2+2 \]
 \[ 0 \leq 2(n_1 - 1)(n_2 - 1) \]
@@ -24,7 +25,8 @@ $k=2$
 \[ \therefore  0 \leq (n_1 - 1)(n_2 -1)\]
 
 $k=3$
-%TODO: Implementar
+\[ n_1^2 + n_2^2 + n_3^2 \leq (n_1 + n_2 + n_3 - 3 + 1)^2 + 3 -1\]
+
 \subsubsection*{\emph{H.I.}}
 Ahora asumiremos lo siguiente como correcto.
 \[ n_1^2 + n_2^2 + ... + n_k^2 \leq (n-k+1)^2 + k -1\]
@@ -48,6 +50,20 @@ PDQ:
 \[ 0 \leq n_{k+1}(n-k) - (n - k) \]
 \[ 0 \leq n_{k+1}(n-k) - (n - k) \]
 \[ 0 \leq (n-k)( n_{k+1}-1) \]
+
+Bajo las restricciones del problema, $ n_{k+1} $ siempre es mayor que 1, por lo 
+tanto $ (n_{k+1}-1) $ siempre es mayor o igual a 0. 
+
+\[ n_{k+1} \geq 1 \]
+\hspace*{0pt}\hfill $/ -1 $
+\[ n_{k+1} - 1 \geq 0 \]
+
+Ademas, n es la suma de todos los $ n_{i} $, que a su vez, son mayores o iguales
+a 1, menos k, que es la cantidad de elementos que se sumaran, lo que nunca sera mayor a la suma, 
+bajo la restriccion de que  $ n_{i} >= 1 $, por lo tanto $ (n-k) $ tambien es 
+positivo. Finalmente $ (n-k)( n_{k+1}-1) $ es la multiplicacion de dos numeros
+positivos o 0, por lo tanto siempre sera mayor o igual a 0. Queda demostrada 
+la \emph{T.I.}
 
 
 \end{document}
