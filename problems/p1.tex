@@ -1,7 +1,9 @@
 \documentclass[../doc.tex]{subfiles}
 \begin{document}
 \subsection{Primero definimos la función $Insert(L,k)$}
-Usando las definiciones de listas $L \in \mathcal{L}_\mathbb{N}$ y las funciones $Pre(L)$ y $Tail(L)$ vistas en clases, y asumiendo que $L$ está ordenada, definiremos $Insert(L,k)$ como:
+Usando las definiciones de listas $L \in \mathcal{L}_\mathbb{N}$ y las
+funciones $Pre(L)$ y $Tail(L)$ vistas en clases, y asumiendo que $L$ está
+ordenada, definiremos $Insert(L,k)$ como:
 
 \[Insert(\emptyset,k) = \emptyset \rightarrow k\]
 \[Insert(L,k) = \left\{
@@ -10,7 +12,10 @@ Usando las definiciones de listas $L \in \mathcal{L}_\mathbb{N}$ y las funciones
   Insert(Pre(L),k) \rightarrow Tail(L), & k < Tail(L)
 \end{array}\right .\]
 
-Como la lista $L$ está ordenada, si $k$ es mayor o igual que $Tail(L)$, significa que k debe ir al final de la lista. Si no, llama recursivamente a $Insert(L,k)$ sin el último elemento, hasta que $k$ sea mayor, o se llegue al inicio de la lista.
+Como la lista $L$ está ordenada, si $k$ es mayor o igual que $Tail(L)$,
+significa que k debe ir al final de la lista. Si no, llama recursivamente a
+$Insert(L,k)$ sin el último elemento, hasta que $k$ sea mayor, o se llegue al
+inicio de la lista.
 
 \subsection{Definimos $InsertSort(L \rightarrow k)$}
 Usando la definición de $Insert(L,k)$ recién hecha, definiremos $InsertSort(L \rightarrow k)$ como:
@@ -18,10 +23,15 @@ Usando la definición de $Insert(L,k)$ recién hecha, definiremos $InsertSort(L 
 \[InsertSort(\emptyset) = \emptyset \]
 \[InsertSort(L \rightarrow k) = Insert(InsertSort(L),k) \]
 
-Lo que ocurre es lo siguiente, la función $InsertSort$ continúa invocando a la función $Insert$ hasta que la lista esté vacía. Una vez que la lista está vacía, $InsertSort$ comienza a retornar de manera recursiva los elementos de la lista a la función $Insert$, que los inserta en el orden correspondiente.
+Lo que ocurre es lo siguiente, la función $InsertSort$ continúa invocando a la
+función $Insert$ hasta que la lista esté vacía. Una vez que la lista está
+vacía, $InsertSort$ comienza a retornar de manera recursiva los elementos de la
+lista a la función $Insert$, que los inserta en el orden correspondiente.
 
 \subsection{Explicación paso a paso de $InsertSort(L \rightarrow k)$}
-Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \rightarrow k)$ recién definida, con la lista $L = \emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2$. 
+Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L
+\rightarrow k)$ recién definida, con la lista $L = \emptyset \rightarrow 5
+\rightarrow 1 \rightarrow 2$. 
 
 \textit{Primero llamamos a $ InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2) $ }
 
@@ -49,15 +59,19 @@ Ahora explicaremos el funcionamiento paso a paso de la función $InsertSort(L \r
 
 \[Insert(\emptyset \rightarrow 1 \rightarrow 5,2) = \emptyset \rightarrow 1 \rightarrow 2 \rightarrow 5\]
 
-Finalmente, $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$ entrega la lista ordenada de manera ascendente; $L' = \emptyset \rightarrow 1 \rightarrow 2 \rightarrow 5$. 
+Finalmente, $InsertSort(\emptyset \rightarrow 5 \rightarrow 1 \rightarrow 2)$
+entrega la lista ordenada de manera ascendente; $L' = \emptyset \rightarrow 1
+\rightarrow 2 \rightarrow 5$. 
 
 \subsection{BONUS}
 Para comprobar que InsertSort efectivamente entrega una lista ordenada,
-crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre inductivamente.
-$IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si está ordenada, o false si no.
+crearemos una función $IsOrdered(L \rightarrow k)$ que lo demuestre
+inductivamente. $IsOrdered(L \rightarrow k)$ recibe una lista y retorna true si
+está ordenada, o false si no.
 
 \textit{
-Se considera que una lista vacía no puede ser comparada, por ello la definición comienza con una lista de un solo elemento.}
+Se considera que una lista vacía no puede ser comparada, por ello la definición
+comienza con una lista de un solo elemento.}
 \[IsOrdered(\rightarrow k) = true\]
 \[IsOrdered(L \rightarrow k) =
 \left\{
