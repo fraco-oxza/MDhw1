@@ -1,45 +1,52 @@
-\documentclass[../doc.tex]{subfiles}
-\begin{document}
+\documentclass[../doc.tex]{subfiles} \begin{document}
 
-\subsection{Teorema y demostración}
-Considere este teorema y su “demostración” por inducción:
+\subsection{Teorema y demostración} Considere este teorema y su “demostración”
+por inducción:
 
-\textbf{Teorema} Dado un conjunto de \(n\) niñas, si al menos una de ellas tiene
-ojos azules, entonces las \(n\) niñas tienen ojos azules.
+\textbf{Teorema} Dado un conjunto de \(n\) niñas, si al menos una de ellas
+tiene ojos azules, entonces las \(n\) niñas tienen ojos azules.
 
 \textbf{Demostración.} Para n = 1 el enunciado es obviamente cierto. Supongamos
-que la proposición es cierta para n niñas.
-Sean \(N_1, ... , N_{n+1}\) niñas con al menos una, pongamos \(N_1\), con ojos azules.
-Veamos que todas tienen los ojos azules:
+que la proposición es cierta para n niñas. Sean \(N_1, ... , N_{n+1}\) niñas
+con al menos una, pongamos \(N_1\), con ojos azules. Veamos que todas tienen
+los ojos azules:
 
-El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de inducción,
-con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\) tiene los ojos azules,
-también \(N_2, ... , N_{n+1}\) verifica la hipótesis de inducción, con lo que dichas niñas
-y en particular \(N_{n+1}\) tiene los ojos azules. Así pues, \(N_1, ... , N_n, N_{n+1}\)
-tienen los ojos azules.
+El grupo de niñas \(N_1, ... , N_n\) verifica entonces la hipótesis de
+inducción, con lo que todas ellas son de ojos azules. Por tanto, como \(N_2\)
+tiene los ojos azules, también \(N_2, ... , N_{n+1}\) verifica la hipótesis de
+inducción, con lo que dichas niñas y en particular \(N_{n+1}\) tiene los ojos
+azules. Así pues, \(N_1, ... , N_n, N_{n+1}\) tienen los ojos azules.
 
 \subsection{Error de la demostración}
 
-El error de esta demostración recae en tomar cualquier conjunto con \(n\) niñas y pensar
-que es igual que un conjunto diferente con la misma cantidad de niñas. La verdad es que
-cada conjunto de \(n\) niñas es distinto, se pueden tener distintas niñas con
-distintas características físicas.
+El error de esta demostración recae en tomar cualquier conjunto con \(n\) niñas
+y pensar que es igual que un conjunto diferente con la misma cantidad de niñas.
+La verdad es que cada conjunto de \(n\) niñas es distinto, se pueden tener
+distintas niñas con distintas características físicas.
 
 También es posible notar el error al probar más casos bases. Cuando \(n = 1\)
-es evidente que si esa niña tiene los ojos azules las \(n\) niñas tienen los 
-ojos azules. Sin embargo, cuando \(n = 2\) podemos encontrar el siguiente caso 
-que desacredita al teorema. Tenemos un grupo con dos niñas, una de ojos azules y 
-la otra de ojos marrón, este grupo de niñas cumple con el teorema, ya que existe
-una niña de ojos azules, pero a su vez hay una niña que tiene los ojos marrones 
-lo cual es una contradicción clara, lo que indica que la H.I. es incorrecta.
+es evidente que si esa niña tiene los ojos azules las \(n\) niñas tienen los
+ojos azules. Sin embargo, cuando \(n = 2\) podemos encontrar el siguiente caso
+que desacredita al teorema. Tenemos un grupo con dos niñas, una de ojos azules
+y la otra de ojos marrón, este grupo de niñas cumple con el teorema, ya que
+existe una niña de ojos azules, pero a su vez hay una niña que tiene los ojos
+marrones lo cual es una contradicción clara, lo que indica que la H.I. es
+incorrecta.
 
-Sin embargo, el error más grave es que está utilizando la T.I. para demostrar la T.I.
-Analicemos la H.I., que es la parte de la inducción que podemos aceptar como 
-cierta sin cuestionarnos. La H.I. es que en un grupo de  $ N_1, ..., N_{n} $ todas 
-las niñas tienen los ojos azules. Esta parte es correcta, el problema viene al 
-decir que $ N_2, ..., N_{n+1} $ también es un grupo con todas las niñas con ojos
-azules, ya que, esta es nuestra T.I., es decir, el autor no puede utilizarla dentro
-de la demostración de la T.I. Lógicamente es similar a querer demostrar que 
-algo es verdad diciendo que es verdad, utilizando esa verdad como argumento y nada más.
+Sin embargo, el error más grave es que está utilizando la T.I. para demostrar
+la T.I. Analicemos la H.I., que es la parte de la inducción que podemos aceptar
+como cierta sin cuestionarnos. La H.I. es que en un grupo de  $ N_1, ..., N_{n}
+$ todas las niñas tienen los ojos azules. Esta parte es correcta, el problema
+viene al decir que $ N_2, ..., N_{n+1} $ también es un grupo con todas las
+niñas con ojos azules, ya que, esta es nuestra T.I., es decir, el autor no
+puede utilizarla dentro de la demostración de la T.I. Lógicamente es similar a
+querer demostrar que algo es verdad diciendo que es verdad, utilizando esa
+verdad como argumento y nada más.
+
+Finalmente, la demostración falla al generalizar conjuntos de niñas
+intercambiables, al no considerar contraejemplos válidos en los casos base y al
+utilizar un razonamiento circular al intentar aplicar la técnica inductiva para
+demostrar la propia técnica inductiva. Estos errores comprometen la validez del
+argumento presentado.
 
 \end{document}

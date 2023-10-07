@@ -1,7 +1,8 @@
 \documentclass[../doc.tex]{subfiles}
 \begin{document}
 \subsection{Definición}
-Considere el conjunto \(S\) de secuencias (o strings) compuestas por símbolos 0 y 1, definido por inducción de la siguiente manera:
+Considere el conjunto \(S\) de secuencias (o strings) compuestas por símbolos 0
+y 1, definido por inducción de la siguiente manera:
 \begin{itemize}
 \item 01 es una secuencia en \(S\).
 \item Si u es una secuencia en \(S\), entonces la secuencia 0\(u\)1 está en \(S\).
@@ -11,15 +12,21 @@ Considere el conjunto \(S\) de secuencias (o strings) compuestas por símbolos 0
 \noindent Por ejemplo, las secuencias 0011 y 0101 están en S.
 
 \subsection{Demostración de la secuencia 00011101}
-Se puede demostrar que la secuencia pertenece al conjunto \(S\) usando las reglas dadas, logrando llegar a la conclusión de que es una extensión del caso base.
+Se puede demostrar que la secuencia pertenece al conjunto \(S\) usando las
+reglas dadas, logrando llegar a la conclusión de que es una extensión del caso
+base.
 
-\noindent Dado que \(uv\) está en \(S\), podemos usar \(u\) como 000111 y \(v\) como 01. \(v\) está en \(S\) porque es el caso base.
+\noindent Dado que \(uv\) está en \(S\), podemos usar \(u\) como 000111 y \(v\)
+como 01. \(v\) está en \(S\) porque es el caso base.
 
 \textbf{PDQ:} \(u\) es una secuencia en \(S\).
 
-\noindent Dado que 0\(u\)1 es una secuencia en \(S\), podemos cambiar nuestro \(u\) a 0011. Podemos repetir esto, y ahora \(u\) sería 01, que es el caso base.
+\noindent Dado que 0\(u\)1 es una secuencia en \(S\), podemos cambiar nuestro
+\(u\) a 0011. Podemos repetir esto, y ahora \(u\) sería 01, que es el caso
+base.
 
-\noindent Con esto se demuestra que la secuencia 00011101 se encuentra en el conjunto \(S\).
+\noindent Con esto se demuestra que la secuencia 00011101 se encuentra en el
+conjunto \(S\).
 
 \subsection{Demostración que todas las secuencias tienen igual cantidad de 0's y 1's}
 \(\#0_u\) = Cantidad de 0 en la secuencia \(u\)
@@ -65,8 +72,10 @@ Aceptamos la propiedad como verdadera para \(u \in S\).
 
 \noindent \(0u1\) comienza por 0 sin importar la secuencia \(u\).
 
-\noindent En \(uv\) la secuencia \(u\) cumple la propiedad, lo que significa que \(uv\) también cumple la propiedad.
+\noindent En \(uv\) la secuencia \(u\) cumple la propiedad, lo que significa
+que \(uv\) también cumple la propiedad.
 
 \subsubsection*{\emph{Conclusión}}
-La secuencia 11010001 no cumple esta propiedad, por tanto no pertenece al conjunto \(S\).
+La secuencia 11010001 no cumple esta propiedad, por tanto no pertenece al
+conjunto \(S\).
 \end{document}
