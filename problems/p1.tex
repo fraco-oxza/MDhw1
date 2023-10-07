@@ -83,4 +83,35 @@ Ahora usaremos esta función con la lista entregada por $InsertSort(L \rightarro
 \emph{Y ahora es caso base, así que: }
 \[IsOrdered(\rightarrow 1) = true\]
 Con esto demostramos que efectivamente la lista $L$ está ordenada de menor a mayor. 
+
+\noindent Entonces, podemos asumir que la siguiente llamada de funciones
+\[IsOrdered(InsertSort(L \rightarrow k))\]
+retorna true.
+
+\emph{Ahora demostraremos que esta llamada de funciones:}
+\[IsOrdered(InsertSort(L \rightarrow k \rightarrow j))\]
+\emph{también retorna true.}
+
+\[InsertSort(L \rightarrow k \rightarrow j) = Insert(InsertSort(L \rightarrow k), j)\]
+Como sabemos que $ InsertSort(L \rightarrow k) $ está ordenado, vamos a obviar esa parte.
+
+Entonces se llama a $Insert()$, por lo que si $j$ es mayor o igual al
+$Tail(L \rightarrow k)$, que es $k$, se pone al final de la lista, quedando:
+\[L \rightarrow k \rightarrow j\]
+Como $ InsertSort(L \rightarrow k) $ está ordenado, esta nueva lista también lo está.
+
+Ahora si $j$ es menor que $k$ la función se llama recursivamente
+hasta encontrar su posición correspondiente, dejando la lista ordenada.
+
+Para corroborar se llamó a la función $IsSortered()$. En el primer caso donde $j$ es
+mayor a $k$, se revisa que $j$ es mayor a $k$, para luego revisar si
+$IsOrdered(L \rightarrow k)$ está ordenada, por la H.I sabemos que esto retorna true.
+
+En el otro caso, donde $j$ es menor a $k$. Para simplificar digamos que el orden es el
+siguiente $L \rightarrow j \rightarrow k$, la función revisaría que $j$ es menor que
+$k$ por lo que ahora llama a $IsOrdered(L \rightarrow j)$, debido a que cuando se llamó a
+la función $Insert(L, j)$ se tuvo que revisar que $j$ fuera mayor que el $Tail(L)$
+sabemos que todavía sigue en orden. Luego se hace la llamada con $L$, pero se sabe que
+si $L \rightarrow k$ está ordenada $L$ tiene que estar ordenada también, por lo que
+la función terminaría retornando true.
 \end{document}
